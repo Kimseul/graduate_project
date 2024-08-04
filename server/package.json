@@ -4,8 +4,8 @@
   "description": "graduate project",
   "main": "app.js",
   "scripts": {
-    
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon .bin/www"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,15 @@
   "homepage": "https://github.com/Kimseul/graduate_project#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "bookestore": "file:",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.4"
   }
 }
