@@ -16,15 +16,15 @@ router.post("/membership",(req,res) =>{
     if(err){
       throw err;
     }
-    var qury = "SELECT * FROM tbcustomer WHERE customerID = ? ";
-    conn.query(qury,[req.body.customerID ], ( err, raw ) => {
+    var qury = "SELECT * FROM tbCustomer WHERE cutomerID = ? ";
+    conn.query(qury,[req.body.cutomerID ], ( err, raw ) => {
       if( err ) {
           throw err;
       }
       if(raw.length === 0){
-         var { name, customerID, customerPassword } = req.body;
-         var qury = "INSERT INTO tbcustomer(name, customerID, customerPassword ) VALUES(?,?,?)";
-         conn.query(qury,[ name, customerID, customerPassword],(err,result) => {
+         var { name, cutomerID, customerPassword } = req.body;
+         var qury = "INSERT INTO tbcustomer(name, cutomerID, customerPassword ) VALUES(?,?,?)";
+         conn.query(qury,[ name, cutomerID, customerPassword],(err,result) => {
            conn.release();
            if(err){
              throw err;
@@ -55,19 +55,17 @@ router.post("/login",(req,res) => {
     if(err){
       throw err;
     }
-    var { customerID ,customerPassword } = req.body;
-    var qury = "SELECT * FROM tbcustomer, tbbasket WHERE tbcustomer.customerID = tbbasket.cutomerID AND customerID=? AND customerPassword=? ";
-    conn.query(qury,[customerID ,customerPassword ],(err,raw) => {
+    var { cutomerID ,customerPassword } = req.body;
+    var qury = "SELECT * FROM tbCustomer WHERE cutomerID=? AND customerPassword=? ";
+    conn.query(qury,[cutomerID ,customerPassword],(err,raw) => {
       conn.release();
       if(err){
         throw err;
       }
       if(raw.length !== 0){
         var data = {
-          ID : raw[0].customerID,
-          name : raw[0].name,
-          BasketID: raw[0].BasketID,
-          totalprice : raw[0].totalprice
+          cutomerID : raw[0].cutomerID,
+          name : raw[0].name
         };
         res.send(data);
       }else{

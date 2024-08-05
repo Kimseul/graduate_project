@@ -54,7 +54,7 @@ const SignUp = (props) =>{
             value={name}
             onChange={e => setname(e.target.value)}
           />
-          <input type="submit" value="Submit" />
+          <input type="submit" value="회원가입" />
         </form>
       </div>
     )

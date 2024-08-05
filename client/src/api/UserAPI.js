@@ -1,7 +1,7 @@
 import axios from 'axios';
 // import APIConstant from './APIConstant'
 
-const BASE_URL = 'http://localhost:4000';
+const BASE_URL = 'http://localhost:3000';
 
 export default {
     /**
@@ -9,7 +9,7 @@ export default {
      */
     signIn : (user) => {
         // 
-        const url = `${BASE_URL}/users/login`
+        const url = `${BASE_URL}/user/login`
         return axios.post(url, user)
     },
 
@@ -17,7 +17,7 @@ export default {
      * 회원가입
      */
     signUp: (user) => {
-        const url = `${BASE_URL}/users/membership`
+        const url = `${BASE_URL}/user/membership`
         return axios.post(url, user)
     },
 
@@ -32,14 +32,14 @@ export default {
      * 누적금액 update
      */
     inserttotalprice : user =>{
-        const url = `${BASE_URL}/users/edit/${user.customerID}`
+        const url = `${BASE_URL}/user/edit/${user.customerID}`
         return axios.put(url, { totalprice : user.totalprice });
     },
     /**
      * 적립금액 update
      */
     insertcustomerPoint : user =>{
-        const url = `${BASE_URL}/users/point/${user.customerID}`
+        const url = `${BASE_URL}/user/point/${user.customerID}`
         return axios.put(url, { customerPoint : user.customerPoint });
     },
 
@@ -48,7 +48,7 @@ export default {
      */
 
      gettotalprice : user => {console.log(user);
-        const url = `${BASE_URL}/users/list/${user}`
+        const url = `${BASE_URL}/user/list/${user}`
         return axios.get(url);
      }
 }
