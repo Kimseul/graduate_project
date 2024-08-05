@@ -10,6 +10,8 @@ var cors = require('cors');
 
 var app = express();
 
+
+console.log(process.env.DATABASE_HOST);
 //view engine setup
 app.set('views',path.join(__dirname,'views'));
 app.set('view engine','ejs');

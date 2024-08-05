@@ -8,7 +8,7 @@ var pool = require("../config/dbconfig");
  */
 router.get('/list',(req,res) =>{
     pool.getConnection((err,conn) => {
-        conn.release();
+        
         if(err){
             throw err;
         }
@@ -24,6 +24,7 @@ router.get('/list',(req,res) =>{
             //         return item.ID === Number(item2.tbBooks_ID);
             //     });
             // });
+            conn.release();
             res.send(raw);
         })
         
