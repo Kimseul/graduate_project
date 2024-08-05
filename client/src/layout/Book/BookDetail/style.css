@@ -1,0 +1,70 @@
+/* initionalize */
+.book-detail-container table {
+    width: 100%;
+    height: 50%;
+    text-align: left;
+  }
+  
+  .book-detail-container table th {
+    width: 20%;
+  }
+  
+  .book-detail-container table tr {
+    border-bottom: 1px solid lightgray;
+  }
+  /* initialize end */
+  
+  /* bookContainer */
+  .book-detail-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  
+  .book-detail-img {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+  }
+  
+  .book-detail-img img {
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  
+  .book-detail-content {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .book-detail-container .basket {
+      width : 100%;
+      text-align: center;
+  }
+  .book-detail-container .basket :hover{
+      cursor: pointer;
+    background :rgba(209, 209, 224, 0.4);
+  }
+
+  .book-detail-container .basket i {
+        font-size: 75px;
+  }
+  .book-detail-container .edit-container {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+ 
+  /* bookContainer */
+  
+  /* basket Container */
+  
+  /* basket Container end */

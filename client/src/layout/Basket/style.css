@@ -1,0 +1,16 @@
+.table-head{
+    border-bottom: 1px solid lightgray;
+}
+table{
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table tbody tr:hover{
+    background :rgba(209, 209, 224, 0.4);
+}
+
+
+.active{
+    background-color: lightgray;
+}
