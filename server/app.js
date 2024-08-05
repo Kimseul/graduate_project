@@ -2,9 +2,11 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
+var cookieParser = require('cookie-parser');
 
 var indexRouter = require('./routes/index');
 var bookRouter = require('./routes/book');
+var userRouter = require('./routes/user');
 
 var cors = require('cors');
 
@@ -19,6 +21,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname,'public')));
+app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/book',bookRouter);
