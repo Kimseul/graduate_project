@@ -1,6 +1,6 @@
 import React, { useState} from 'react'
 import { CreaditCardAPI } from '../../api';
-import Modal from '../../component/Modal';
+import Modal from '../../componmet/Modal';
 import CardInsert from './Carddetail';
 import Addressdetail from './Address';
 

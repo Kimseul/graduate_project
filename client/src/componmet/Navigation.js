@@ -1,4 +1,4 @@
-import React,{Component} from "react";
+import React,{ Component } from "react";
 import { Link } from 'react-router-dom'
 import {sessionClear } from '../util'
 import './style.css';
@@ -55,8 +55,8 @@ class Navigation extends Component {
     }
 }
 
-Navigation.defaultProps = {
-    user :null
-}
+// Navigation.defaultProps = {
+//     user :null
+// }
 
 export default Navigation;

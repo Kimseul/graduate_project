@@ -1,6 +1,6 @@
 import React ,{ useState }from 'react'
 import './style.css';
-import Modal from '../../component/Modal/Modal';
+import Modal from '../../componmet/Modal/Modal';
 import OrderDetail from './OrderDetail';
 
 const OrderPresenter = (props) => {

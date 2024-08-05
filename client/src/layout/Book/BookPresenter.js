@@ -1,8 +1,8 @@
 import React ,{useState} from 'react'
 import './style.css';
-import Modal from '../../component/Modal/Modal';
-import BookDetail from './component/BookDetail/BookDetail';
-import BookInsert from './component/BookDetail/BookInsert';
+import Modal from '../../componmet/Modal/Modal';
+import BookDetail from './BookDetail/BookDetail';
+import BookInsert from './BookDetail/BookInsert';
 
 const BookPresenter = (props) => {
     const { user, bookList ,updatebook ,insertbook ,deletebook ,insertbasket} = props;

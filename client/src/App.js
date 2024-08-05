@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router,Route} from "react-router-dom"
-import Navigation from "./component/Navigation";
+import Navigation from "./componmet/Navigation";
 import { BookAPI, UserAPI, BasketAPI, OrderAPI, CreaditCardAPI } from "./api";
 import { setSession, getSession } from "./util";
 import {
@@ -10,9 +10,9 @@ import {
   OrderContainer,
   MypageContainer
 } from "./layout";
-import Modal from "./component/Modal/Modal";
-import SignIn from "./component/SignIn";
-import SignUp from "./component/SignUp";
+import Modal from "./componmet/Modal/Modal";
+import SignIn from "./componmet/SignIn";
+import SignUp from "./componmet/SignUp";
 import AddressAPI from "./api/AddressAPI";
 
 const App = () => {
