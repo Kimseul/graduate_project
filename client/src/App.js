@@ -355,10 +355,7 @@ const App = () => {
           <MainContainer
           user={user}
           bookList={bookList}
-          updatebook={handleUpdateBook}
-          insertbook={handleInsertBook}
-          deletebook={handleDeleteBook}
-          insertbasket={handleInsertBasket}
+          
           />
           )} />
           <Route

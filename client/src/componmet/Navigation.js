@@ -1,4 +1,4 @@
-import React,{ Component } from "react";
+import React,{ Component , useState } from "react";
 import { Link } from 'react-router-dom'
 import {sessionClear } from '../util'
 import './style.css';
@@ -16,18 +16,25 @@ class Navigation extends Component {
         const { createsignIn,createsignUp} = this.props;
         return(
             <div style={{width:'100%',height:'5%',borderBottom: '1px solid black',display :'flex',flexDirection:'row'}}>
-                <div style={{width:'8%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                <div style={{width:'10%',display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <FaBookOpen>
                     <i className="material-icons">
                         collections_bookmark
                     </i>
                     </FaBookOpen>
                     BookStore
+
+                    
                 </div>
-                <div style={{width :'92%',display:'flex',justifyContent:'flex-end',alignItems:'center'}}>
-                    <div>
+                <div style={{width :'8%',display:'flex',alignContent:'center',justifyContent:'center'}}>
+                    <input type="search" placeholder="검색어를 입력하세요."></input>
+                    <button value="submit">검색</button>
+                </div>
+                
+                <div style={{width :'82%',display:'flex',justifyContent:'flex-end',alignItems:'center'}}>
+                    {/* <div>
                         <Link to=''>도서</Link>
-                    </div>
+                    </div> */}
                     {user === null ?
                     (
                         <>
