@@ -2,6 +2,8 @@ import React,{ Component } from "react";
 import { Link } from 'react-router-dom'
 import {sessionClear } from '../util'
 import './style.css';
+import { FaBookOpen } from "react-icons/fa";
+
 
 class Navigation extends Component {
     logout = () =>{
@@ -15,11 +17,11 @@ class Navigation extends Component {
         return(
             <div style={{width:'100%',height:'5%',borderBottom: '1px solid black',display :'flex',flexDirection:'row'}}>
                 <div style={{width:'8%',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                    <Link to="">
+                    <FaBookOpen>
                     <i className="material-icons">
                         collections_bookmark
                     </i>
-                    </Link>
+                    </FaBookOpen>
                     BookStore
                 </div>
                 <div style={{width :'92%',display:'flex',justifyContent:'flex-end',alignItems:'center'}}>
@@ -55,8 +57,8 @@ class Navigation extends Component {
     }
 }
 
-// Navigation.defaultProps = {
-//     user :null
-// }
+Navigation.defaultProps = {
+    user :null
+}
 
 export default Navigation;

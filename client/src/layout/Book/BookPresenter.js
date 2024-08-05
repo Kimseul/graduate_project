@@ -4,7 +4,7 @@ import Modal from '../../componmet/Modal/Modal';
 import BookDetail from './BookDetail/BookDetail';
 import BookInsert from './BookDetail/BookInsert';
 
-const BookPresenter = (props) => {
+const BookPresenter = props => {
     const { user, bookList ,updatebook ,insertbook ,deletebook ,insertbasket} = props;
 
     // const [modal, setModal] = useState(false)

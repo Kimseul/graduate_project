@@ -26,16 +26,27 @@ const App = () => {
   const [cardlist, setCardlist] = useState([]);
   const [addresslist, setAddresslist] = useState([]);
 
-  useEffect(() => {
-     const fetchData = async() => {
-      await handlegetbook();
-      await handlegetorder();
-      await handlegetCard();
-      await _getSession();
-    }
-    fetchData()
+  // useEffect(() => {
+  //    const fetchData = async() => {
+  //     await handlegetbook();
+  //     await handlegetorder();
+  //     await handlegetCard();
+  //     await _getSession();
+  //   }
+  //   fetchData()
 
-  }, []);
+  // }, []);
+
+  useEffect(() => {
+    const fetchData = async() => {
+     await handlegetbook();
+     await handlegetorder();
+     await handlegetCard();
+     await _getSession();
+   }
+   fetchData()
+
+ }, []);
 
   const _getSession = async () => {
     const result = getSession("user");
@@ -341,7 +352,14 @@ const App = () => {
 
         <div style={{ width: "100%", height: "95%", overflow: "auto" }}>
           <Route exact path="/" render={ () => (
-          <MainContainer />
+          <MainContainer
+          user={user}
+          bookList={bookList}
+          updatebook={handleUpdateBook}
+          insertbook={handleInsertBook}
+          deletebook={handleDeleteBook}
+          insertbasket={handleInsertBasket}
+          />
           )} />
           <Route
             path="/book"

@@ -1,9 +1,9 @@
-import React ,{ useStatus } from 'react'
+import React ,{ useState } from 'react';
 
-const SignIn = (props) => {
+const SignIn = props => {
     const { signIn} = props;
-    const [cutomerID, setCutomerID] = useStatus('');
-    const [customerPassword, setCustomerPassword] = useStatus('');
+    const [cutomerID, setCutomerID] = useState('');
+    const [customerPassword, setCustomerPassword] = useState('');
 
     const handleSignIn = () =>{
         const item ={
@@ -24,7 +24,7 @@ const SignIn = (props) => {
                 <input type='text' id='fname' name='firstname' placeholder='Your name...' value={cutomerID} onChange={e => setCutomerID(e.target.value)}></input>
                 <label for="lname">Password</label>
                 <input type='password' id='lname' name='lastname' placeholder='Your password..' value={customerPassword} onChange={e => setCustomerPassword(e.target.value)}/>
-                <input type='submit' value="Submit" on/>
+                <input type='submit' value="로그인" />
 
             </from>
         </div>
