@@ -7,8 +7,8 @@ const BASE_URL = 'http://localhost:3000';
 
 export default {
     //User API
-    SIGNIN: BASE_URL + '/users/signIn', // POST
-    SIGNUP: BASE_URL + '/users/signUp', // POST
+    SIGNIN: BASE_URL + '/user/signIn', // POST
+    SIGNUP: BASE_URL + '/user/membership', // POST
 
     //Book API
     GET_BOOK: BASE_URL + '/book', //GET

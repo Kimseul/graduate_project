@@ -6,6 +6,7 @@ import { FaBookOpen } from "react-icons/fa";
 
 
 class Navigation extends Component {
+    //logout function
     logout = () =>{
         sessionClear();
         window.location.reload();
@@ -16,7 +17,7 @@ class Navigation extends Component {
         const { createsignIn,createsignUp} = this.props;
         return(
             <div style={{width:'100%',height:'5%',borderBottom: '1px solid black',display :'flex',flexDirection:'row'}}>
-                <div style={{width:'10%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                <div style={{width:'13%',display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <FaBookOpen>
                     <i className="material-icons">
                         collections_bookmark
@@ -26,12 +27,12 @@ class Navigation extends Component {
 
                     
                 </div>
-                <div style={{width :'8%',display:'flex',alignContent:'center',justifyContent:'center'}}>
+                <div style={{width :'10%',display:'flex',alignContent:'center',justifyContent:'center'}}>
                     <input type="search" placeholder="검색어를 입력하세요."></input>
-                    <button value="submit">검색</button>
+                    <button value="submit">search</button>
                 </div>
                 
-                <div style={{width :'82%',display:'flex',justifyContent:'flex-end',alignItems:'center'}}>
+                <div style={{width :'75%',display:'flex',justifyContent:'flex-end',alignItems:'center'}}>
                     {/* <div>
                         <Link to=''>도서</Link>
                     </div> */}

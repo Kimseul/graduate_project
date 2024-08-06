@@ -27,6 +27,7 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/book',bookRouter);
+app.use('/user',userRouter);
 
 //catch 404 and forword to error handler
 app.use(function(req,res,next){
