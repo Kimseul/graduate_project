@@ -15,6 +15,7 @@ const SignUp = (props) =>{
         }
         signUp(item);
         console.log(item);
+        alert('회원가입 완료!')
 
     }
 

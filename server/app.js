@@ -30,8 +30,8 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 app.use('/book',bookRouter);
 app.use('/user',userRouter);
-app.use('./order',orderRouter);
-app.use('./addres',addressRouter);
+app.use('/order',orderRouter);
+app.use('/address',addressRouter);
 
 //catch 404 and forword to error handler
 app.use(function(req,res,next){
