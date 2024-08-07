@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
+import {FaShoppingCart} from 'react-icons/fa';
 
 const BookDetail = (props) => {
   const { book, user } = props;
@@ -114,15 +115,17 @@ const BookDetail = (props) => {
           </table>
           {
             user !== null &&
-            user.ID !== "admin" && (
+            user.cutomerID !== "admin" && (
             <div className="basket" onClick={() => addbasket(book)}>
-              <i className="material-icons">add_shopping_cart</i>
+              <FaShoppingCart size="40" >
+              <i className="material-icons" >add_shopping_cart</i>
+              </FaShoppingCart>
             </div>
           )}
 
           {
             user !==null &&
-            user.ID === "admin" &&
+            user.cutomerID === "admin" &&
             
             
             (updatetable ? (

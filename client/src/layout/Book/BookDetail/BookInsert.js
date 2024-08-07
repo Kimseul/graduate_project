@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
+import {CiEdit} from "react-icons/ci";
 
 const BookInsert = props => {
 
@@ -93,7 +94,10 @@ const BookInsert = props => {
         
          <div className="edit-container">
             <div className="basket" onClick={() => handleInsertBook()}>
-                    <i class="material-icons">check_box</i>
+              <CiEdit size="40">
+                   <i class="material-icons">check_box</i>
+              </CiEdit>
+                   
             </div>    
         </div>
       </div>

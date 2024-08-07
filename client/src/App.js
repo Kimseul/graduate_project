@@ -355,6 +355,9 @@ const App = () => {
           <MainContainer
           user={user}
           bookList={bookList}
+          updatebook={handleUpdateBook}
+          deletebook={handleDeleteBook}
+          insertbook={handleInsertBook}
           
           />
           )} />

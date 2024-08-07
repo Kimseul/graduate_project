@@ -15,8 +15,8 @@ const SignIn = props => {
     }
     return(
         <div className='signup'>
-            <from onSubmit={e =>{
-                e.prevenDefault();
+            <form onSubmit={e =>{
+                e.preventDefault();
                 handleSignIn();
             }}>
                 <h1>LogIn</h1>
@@ -26,7 +26,7 @@ const SignIn = props => {
                 <input type='password' id='lname' name='lastname' placeholder='Your password..' value={customerPassword} onChange={e => setCustomerPassword(e.target.value)}/>
                 <input type='submit' value="로그인" />
 
-            </from>
+            </form>
         </div>
     )
 
