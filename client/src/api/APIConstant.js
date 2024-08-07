@@ -2,13 +2,13 @@
  * API 상수 정의
  */
 
-const BASE_URL = 'https://localhost:3000';
+const BASE_URL = 'http://localhost:3000';
 // const BASE_URL = 'http://10.1.213.210:8000';
 
 export default {
     //User API
     SIGNIN: BASE_URL + '/user/signIn', // POST
-    SIGNUP: BASE_URL + '/user/membership', // POST
+    SIGNUP: BASE_URL + '/user/signUp', // POST
 
     //Book API
     GET_BOOK: BASE_URL + '/book', //GET
