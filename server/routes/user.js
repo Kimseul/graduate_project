@@ -75,4 +75,68 @@ router.post("/login",(req,res) => {
     });
   });
 });
+
+/**
+ * 회원 수정하기
+ * @param(cutomerID, customerPassword,name )
+ * @returns(boolean)
+ */
+router.put("/edit/:id",(req,res) => {
+  const { cutomerID, customerPassword,name} = req.body;
+  const { id } = req.params;
+  console.log(req.body);
+  console.log(id)
+  pool.getConnection((err,conn) =>{
+    if(err){
+      throw err;
+    }
+    var sql = `UPDATE tbCustomer SET cutomerID = ?, customerPassword = ?, name = ? WHERE cutomerID =?;`;
+    conn.query(sql,[ cutomerID, customerPassword,name, id ],(err,raw) =>{
+      conn.release();
+      if(err){
+        throw err;
+      }
+      console.log(raw)
+      if(raw){
+        res.send({
+          result : true
+        });
+      }else{
+        res.send(500, {
+          result:false
+        });
+      }
+    });
+  });
+});
+
+/**
+ * 회원 정보 삭제
+ * @param(cutomerID)
+ * @returns(boolean)
+ */
+router.delete("/delete/:id",(req,res) =>{
+  const { id } = req.params;
+  pool.getConnection((err,conn) =>{
+    if(err){
+      throw err;
+    }
+    var sql = `DELETE FROM tbCustomer WHERE cutomerID =?;`;
+    conn.query(sql,[ id ], (err,raw) =>{
+      conn.release();
+        if(err){
+          throw err;
+        }
+        if(raw){
+          res.send({
+            result : true
+          });
+        }else{
+          res.send(500,{
+            result :false
+          });
+        }
+    })
+  });
+});
 module.exports = router;

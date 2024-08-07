@@ -38,13 +38,13 @@ router.get('/list',(req,res) =>{
  * @returns(boolean)
  */
 router.post("/signup",(req,res) => {
-    const {  bookName, author, price, stock, url } = req.body;
+    const {  bookID,bookName, author, price, stock, url } = req.body;
     pool.getConnection((err,conn) =>{
       if(err){
         throw err;
       }
-      var sql = `INSERT INTO tbbooks( bookName, author, price, stock, url)  VALUES (?,?,?,?,?);`;
-      conn.query(sql,[ bookName, author, price, stock, url] , (err,raw) =>{
+      var sql = `INSERT INTO tbBooks( bookID,bookName, author, price, stock, url)  VALUES (?,?,?,?,?,?);`;
+      conn.query(sql,[ bookID,bookName, author, price, stock, url] , (err,raw) =>{
         conn.release();
         if(err){
           throw err;
@@ -61,5 +61,69 @@ router.post("/signup",(req,res) => {
       });
     });
   });
+
+  /**
+ * 책 수정하기
+ * @param( bookName, author, price, stock, url )
+ * @returns(boolean)
+ */
+router.put("/edit/:id",(req,res) => {
+  const { bookName, author, price, stock, url} = req.body;
+  const { id } = req.params;
+  console.log(req.body);
+  console.log(id)
+  pool.getConnection((err,conn) =>{
+    if(err){
+      throw err;
+    }
+    var sql = `UPDATE tbBooks SET bookName = ?, price = ?, author = ?, stock =?, url =? WHERE bookID =?;`;
+    conn.query(sql,[ bookName,  price, author,stock, url , id ],(err,raw) =>{
+      conn.release();
+      if(err){
+        throw err;
+      }
+      console.log(raw)
+      if(raw){
+        res.send({
+          result : true
+        });
+      }else{
+        res.send(500, {
+          result:false
+        });
+      }
+    });
+  });
+});
+
+/**
+ * 책 삭제
+ * @param(bookID)
+ * @returns(boolean)
+ */
+router.delete("/delete/:id",(req,res) =>{
+  const { id } = req.params;
+  pool.getConnection((err,conn) =>{
+    if(err){
+      throw err;
+    }
+    var sql = `DELETE FROM tbBooks WHERE bookID =?;`;
+    conn.query(sql,[ id ], (err,raw) =>{
+      conn.release();
+        if(err){
+          throw err;
+        }
+        if(raw){
+          res.send({
+            result : true
+          });
+        }else{
+          res.send(500,{
+            result :false
+          });
+        }
+    })
+  });
+});
 
 module.exports = router;
