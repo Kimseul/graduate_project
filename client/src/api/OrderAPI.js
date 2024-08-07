@@ -1,7 +1,7 @@
 import axios from "axios";
 //import APIConstant from "./APIConstant";
 
-const BASE_URL = 'http://localhost:4000';
+const BASE_URL = 'http://localhost:3000';
 
 export default {
   /**

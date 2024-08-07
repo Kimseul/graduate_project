@@ -341,7 +341,7 @@ const App = () => {
         <SignIn signIn={handleSignIn} />
       </Modal>
       <Modal active={signUpModal} onCancel={setSignUpModal}>
-        <SignUp signUp={handleSignUp} />
+          <SignUp signUp={handleSignUp} />
       </Modal>
       <Router>
         <Navigation

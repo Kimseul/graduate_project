@@ -2,7 +2,7 @@
  * API 상수 정의
  */
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://localhost:3000';
 // const BASE_URL = 'http://10.1.213.210:8000';
 
 export default {

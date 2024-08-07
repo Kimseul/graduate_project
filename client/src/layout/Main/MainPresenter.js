@@ -47,7 +47,17 @@ const MainPresenter = (props) => {
                         {list}
                     </tbody>
                 </table>
-               
+                {/* <input type="button" value="도서 등록" onClick={() => setBookinsertModal(true)}/>
+                    {/* <Modal active = {modal} onCancel ={setModal}>
+                        
+                    </Modal> */}
+                    {/* <Modal active ={detailModal} onCancel = {setdetailModal}>
+                      <BookDetail  user={user} book ={bookdetail} editbook={updatebook} deletebook={deletebook} onclose ={setdetailModal} 
+                      addbasket={insertbasket}/>
+                    </Modal>
+                    <Modal active ={bookinsertModal}  onCancel = {setBookinsertModal}>
+                        <BookInsert  user={user} insertbook={insertbook}/>
+                    </Modal> */} 
             </div>
         </div>
     </div>

@@ -24,7 +24,7 @@ router.post("/membership",(req,res) =>{
       if(raw.length === 0){
         console.log('test!');
          var { name, cutomerID, customerPassword } = req.body;
-         var qury = "INSERT INTO tbcustomer(name, cutomerID, customerPassword ) VALUES(?,?,?)";
+         var qury = "INSERT INTO tbCustomer(name, cutomerID, customerPassword ) VALUES(?,?,?)";
          conn.query(qury,[ name, cutomerID, customerPassword],(err,result) => {
            conn.release();
            if(err){
