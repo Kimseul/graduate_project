@@ -38,13 +38,13 @@ router.get('/list',(req,res) =>{
  * @returns(boolean)
  */
 router.post("/signup",(req,res) => {
-    const {  bookID,bookName, author, price, stock, url } = req.body;
+    const {  bookName, author, price, stock, url } = req.body;
     pool.getConnection((err,conn) =>{
       if(err){
         throw err;
       }
-      var sql = `INSERT INTO tbBooks( bookID,bookName, author, price, stock, url)  VALUES (?,?,?,?,?,?);`;
-      conn.query(sql,[ bookID,bookName, author, price, stock, url] , (err,raw) =>{
+      var sql = `INSERT INTO tbBooks( bookName, author, price, stock, url)  VALUES (?,?,?,?,?,?);`;
+      conn.query(sql,[ bookName, author, price, stock, url] , (err,raw) =>{
         conn.release();
         if(err){
           throw err;

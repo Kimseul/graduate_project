@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
-import {FaShoppingCart} from 'react-icons/fa';
+import {FaShoppingCart ,FaEdit,FaCheckSquare} from 'react-icons/fa';
+import { MdDeleteForever,MdCancelPresentation } from "react-icons/md";
 
 const BookDetail = (props) => {
   const { book, user } = props;
@@ -131,21 +132,29 @@ const BookDetail = (props) => {
             (updatetable ? (
               <div className="edit-container">
                 <div className="basket" onClick={() => handleEditBook()}>
-                    <i class="material-icons">check_box</i>
+                <FaCheckSquare size="35">
+                <i class="material-icons">check_box</i>
+                </FaCheckSquare>
                 </div>
                 <div className="basket" onClick={() => onclose()}>
-                    <i class="material-icons">cancel</i>
+                <MdCancelPresentation size="35" >
+                  <i class="material-icons">cancel</i>
+                </MdCancelPresentation>
                 </div>
               </div>
             ) : (
               <div className="edit-container">
                   <div className="basket" onClick={() => setUpdatetable(true)}>
-                    <i class="material-icons">edit</i>
+                  <FaEdit size="35">
+                  <i class="material-icons">edit</i>
+                  </FaEdit>
                   </div>
                   <div className="basket" onClick={() => deletebook(book.bookID)}>
-                    <i class="material-icons">
+                  <MdDeleteForever size="35">
+                  <i class="material-icons">
                       delete_forever
                     </i>
+                  </MdDeleteForever>
                   </div>
                 </div>
             ))}
