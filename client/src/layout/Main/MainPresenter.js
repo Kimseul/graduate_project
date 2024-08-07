@@ -5,7 +5,7 @@ import BookInsert from '../Book/BookDetail/BookInsert';
 
 
 const MainPresenter = (props) => {
-    const { user, bookList ,updatebook,deletebook ,insertbook} = props;
+    const { user, bookList ,updatebook,deletebook ,insertbook,insertbasket} = props;
     
     const [detailModal, setdetailModal] = useState(false)
     const [bookdetail, setBookdetail] = useState(null)
@@ -50,7 +50,7 @@ const MainPresenter = (props) => {
                     </tbody>
                 </table>
                 <Modal active ={detailModal} onCancel = {setdetailModal}>
-                      <BookDetail  user={user} book ={bookdetail} editbook={updatebook} deletebook={deletebook} onclose ={setdetailModal} 
+                      <BookDetail  user={user} book ={bookdetail} editbook={updatebook} deletebook={deletebook} onclose ={setdetailModal} insertbasket={insertbasket} 
                      />
                 </Modal>
                <input type="button" value="도서 등록" onClick={() => setBookinsertModal(true)}/>

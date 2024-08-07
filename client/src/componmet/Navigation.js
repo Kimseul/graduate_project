@@ -52,7 +52,7 @@ class Navigation extends Component {
                                 <Link to="">마이페이지</Link>
                             </div>
                             <div className="menu-item">
-                                <Link to="">장바구니</Link>
+                                <Link to="/basket">장바구니</Link>
                             </div>
                             <div className="menu-item">
                                 <Link onClick={()=> this.logout()}>로그아웃</Link>

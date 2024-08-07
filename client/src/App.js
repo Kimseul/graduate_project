@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router,Route} from "react-router-dom"
 import Navigation from "./componmet/Navigation";
 import { BookAPI, UserAPI, BasketAPI, OrderAPI, CreaditCardAPI } from "./api";
-import { setSession, getSession } from "./util";
+import { setSession, getSession ,numberWithComma} from "./util";
 import {
   MainContainer,
   BookContainer,
@@ -64,10 +64,10 @@ const App = () => {
    */
   const handlegetbook = async () => {
     const result = await BookAPI.getBook();
-    // result.data.forEach(item =>{
-    //   item.price = numberWithComma(item.price);
-    //   item.stock = numberWithComma(item.stock);
-    // })
+    result.data.forEach(item =>{
+      item.price = numberWithComma(item.price);
+      item.stock = numberWithComma(item.stock);
+    })
     setBookList(result.data);
   };
 
@@ -358,6 +358,7 @@ const App = () => {
           updatebook={handleUpdateBook}
           deletebook={handleDeleteBook}
           insertbook={handleInsertBook}
+          insertbasket={handleInsertBasket}
           
           />
           )} />

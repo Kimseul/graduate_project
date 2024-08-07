@@ -12,7 +12,7 @@ export default {
 
     //Book API
     GET_BOOK: BASE_URL + '/book', //GET
-    EDIT_BOOK: BASE_URL + '/book/edit', //POST
+    REGIST_BOOK: BASE_URL + '/book', //POST
     UPDATE_BOOK: BASE_URL + '/book', //PUT
     DELETE_BOOK: BASE_URL + '/book', //DELETE
 
