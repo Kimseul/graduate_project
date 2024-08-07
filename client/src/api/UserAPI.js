@@ -1,7 +1,7 @@
 import axios from 'axios';
 // import APIConstant from './APIConstant'
 
-const BASE_URL = 'http://api-kimseul.ongdv.dev';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export default {
     /**

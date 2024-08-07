@@ -1,7 +1,7 @@
 import axios from 'axios';
 //import APIConstant from './APIConstant'
 // const BASE_URL = 'http://10.1.213.210:8000';
-const BASE_URL = 'http://api-kimseul.ongdv.dev';
+const BASE_URL = 'https://api-kimseul.ongdv.dev';
 
 export default {
     /**

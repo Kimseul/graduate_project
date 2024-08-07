@@ -7,6 +7,8 @@ var cookieParser = require('cookie-parser');
 var indexRouter = require('./routes/index');
 var bookRouter = require('./routes/book');
 var userRouter = require('./routes/user');
+var orderRouter = require('./routes/order');
+var addressRouter = require('./routes/address');
 
 var cors = require('cors');
 
@@ -28,6 +30,8 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 app.use('/book',bookRouter);
 app.use('/user',userRouter);
+app.use('./order',orderRouter);
+app.use('./addres',addressRouter);
 
 //catch 404 and forword to error handler
 app.use(function(req,res,next){
