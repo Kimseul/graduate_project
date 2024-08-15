@@ -9,6 +9,7 @@ var bookRouter = require('./routes/book');
 var userRouter = require('./routes/user');
 var orderRouter = require('./routes/order');
 var addressRouter = require('./routes/address');
+var basketRouter = require('./routes/basket');
 
 var cors = require('cors');
 
@@ -32,6 +33,7 @@ app.use('/book',bookRouter);
 app.use('/user',userRouter);
 app.use('/order',orderRouter);
 app.use('/address',addressRouter);
+app.use('/basket',basketRouter);
 
 //catch 404 and forword to error handler
 app.use(function(req,res,next){

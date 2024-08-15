@@ -12,7 +12,7 @@ export default {
 
     //Book API
     GET_BOOK: BASE_URL + '/book', //GET
-    REGIST_BOOK: BASE_URL + '/book', //POST
+    REGIST_BOOK: BASE_URL + '/book/signup', //POST
     UPDATE_BOOK: BASE_URL + '/book', //PUT
     DELETE_BOOK: BASE_URL + '/book', //DELETE
 
@@ -27,4 +27,9 @@ export default {
     REGIST_ADDRESS: BASE_URL + '/address', //POST
 
     GET_CARD: BASE_URL + '/creaditcard', //GET
+
+    //Basket API
+    GET_BASKET: BASE_URL + '/basket/detail/list', //GET
+    REGIST_BASKET: BASE_URL + '/basket', //POST
+    
 }

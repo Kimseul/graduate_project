@@ -8,7 +8,7 @@ export default {
    * 주문불러오기
    */
   getOrder: order => {
-    const url = `${BASE_URL}/orders/list`
+    const url = `${BASE_URL}/order/list`
     return axios.get(url, order);
   },
 
@@ -16,7 +16,7 @@ export default {
    * 주문상세 불러오기
    */
   getOrderDetail: order => {
-    const url = `${BASE_URL}/orders/detail/list/${order}`
+    const url = `${BASE_URL}/order/detail/list/${order}`
     return axios.get(url, order);
   },
 
@@ -25,7 +25,7 @@ export default {
    * @param {tbCustomer_ID,	address, detailAddress,	addressNumber} order
    */
   registOrder: order => {
-    const url = `${BASE_URL}/orders/signup`
+    const url = `${BASE_URL}/order/signup`
     return axios.post(url, order);
   },
 
@@ -34,7 +34,7 @@ export default {
    * @param {tbOrder_ID, tbBook_ID, QTY, price} orderdetail
    */
   registOrderDetail: order => {
-    const url = `${BASE_URL}/orders/detail/signup`
+    const url = `${BASE_URL}/order/detail/signup`
     return axios.post(url, order);
   },
 
@@ -42,7 +42,7 @@ export default {
    * 주문 삭제하기
    */
   deleteOrder: id => {
-    const url = `${BASE_URL}/orders/delete`
+    const url = `${BASE_URL}/order/delete`
     return axios.delete(url, { data: {  tbBooks_ID: id } });
   }
 };

@@ -5,7 +5,7 @@ import BookDetail from './BookDetail/BookDetail';
 import BookInsert from './BookDetail/BookInsert';
 
 const BookPresenter = props => {
-    const { user, bookList ,updatebook ,insertbook ,deletebook ,insertbasket} = props;
+    const { user, bookList ,updatebook ,insertbook ,deletebook ,addbasket} = props;
 
     // const [modal, setModal] = useState(false)
     const [detailModal, setdetailModal] = useState(false)
@@ -58,7 +58,7 @@ const BookPresenter = props => {
                     </Modal> */}
                     <Modal active ={detailModal} onCancel = {setdetailModal}>
                       <BookDetail  user={user} book ={bookdetail} editbook={updatebook} deletebook={deletebook} onclose ={setdetailModal} 
-                      addbasket={insertbasket}/>
+                      addbasket={addbasket}/>
                     </Modal>
                     <Modal active ={bookinsertModal}  onCancel = {setBookinsertModal}>
                         <BookInsert  user={user} insertbook={insertbook}/>

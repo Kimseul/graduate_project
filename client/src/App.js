@@ -20,7 +20,7 @@ const App = () => {
   const [signInModal, setSignInModal] = useState(false);
   const [signUpModal, setSignUpModal] = useState(false);
   const [user, setUser] = useState(null);
-  const [basket, setBasket] = useState([]);
+  const [basket, setBaske] = useState([]);
   const [basketlist, setBasketlist] = useState([]);
   const [order, setOrder] = useState([]);
   const [cardlist, setCardlist] = useState([]);
@@ -40,12 +40,11 @@ const App = () => {
   useEffect(() => {
     const fetchData = async() => {
      await handlegetbook();
-     await handlegetorder();
-     await handlegetCard();
+    //  await handlegetorder();
+    //  await handlegetCard();
      await _getSession();
    }
    fetchData()
-
  }, []);
 
   const _getSession = async () => {
@@ -54,8 +53,8 @@ const App = () => {
     if (result !== null) {
       await setUser(result);
       await handlegetbasket(result.BasketID);
-      await handlegetorder(result.ID);
-      await handleGetTotalPrice(result)
+      // await handlegetorder(result.ID);
+      // await handleGetTotalPrice(result)
     }
   };
 
@@ -102,7 +101,7 @@ const App = () => {
    * @param {*} book
    */
   const handleDeleteBook = async book => {
-    //console.log(book);
+    console.log(book);
     const result = await BookAPI.deleteBook(book);
     if (result.data.result) {
       alert("삭제 완료");
@@ -126,22 +125,22 @@ const App = () => {
     }
   };
 
-  /**
-   * 누적금액 등록
-   * @param {*}
-   */
-  const handleInsertTotalprice = async user => {
-    const result = await UserAPI.inserttotalprice(user);
-    console.log(result.data);
-  };
-   /**
-   * 누적금액 등록
-   * @param {*}
-   */
-  const handleInsertcustomerPoint = async user => {
-    const result = await UserAPI.insertcustomerPoint(user);
-    console.log(result.data);
-  };
+  // /**
+  //  * 누적금액 등록
+  //  * @param {*}
+  //  */
+  // const handleInsertTotalprice = async user => {
+  //   const result = await UserAPI.inserttotalprice(user);
+  //   console.log(result.data);
+  // };
+  //  /**
+  //  * 누적금액 등록
+  //  * @param {*}
+  //  */
+  // const handleInsertcustomerPoint = async user => {
+  //   const result = await UserAPI.insertcustomerPoint(user);
+  //   console.log(result.data);
+  // };
 
   /**
    * 로그인
@@ -207,131 +206,131 @@ const App = () => {
     }
   };
 
-  /**
-   * 주문 상세 등록
-   */
+  // /**
+  //  * 주문 상세 등록
+  //  */
 
-  const handleInsertOrder = async data => {
-    const { order, orderdetail } = data;
-    console.log(data);
-    try {
-      const result = await OrderAPI.registOrder(order);
-      if (result.data.result) {
-        orderdetail.forEach(async item => {
-          const { tbBooks_ID } = item;
-          const { BasketID } = user;
+  // const handleInsertOrder = async data => {
+  //   const { order, orderdetail } = data;
+  //   console.log(data);
+  //   try {
+  //     const result = await OrderAPI.registOrder(order);
+  //     if (result.data.result) {
+  //       orderdetail.forEach(async item => {
+  //         const { tbBooks_ID } = item;
+  //         const { BasketID } = user;
 
-          const result2 = await OrderAPI.registOrderDetail(item);
-          const result3 = await BasketAPI.deleteBasket({
-            BasketID: BasketID,
-            bookID: tbBooks_ID
-          });
-          console.log(result3);
-          console.log(result2);
-        });
-        alert("주문 성공");
-        handlegetorder(user.ID);
-        handleInsertTotalprice({customerID: user.ID, totalprice: order.totalprice});
-        handleInsertcustomerPoint({customerID : user.ID, customerPoint : order.customerPoint });
-      _getSession()
-        //console.log(result4);
-      }
-    } catch (error) {
-      alert("주문 실패");
-      console.log(error);
-    }
-  };
-  /**
-   * 총 금액 조회
-   * @param {} id 
-   */
-  const handleGetTotalPrice = async (user) =>{
-    const result4 = await UserAPI.gettotalprice(user.ID);
-    console.log(result4);
-    console.log(user)
-    let newUser = Object.assign({}, user);
-    newUser.totalprice = result4.data[0].totalprice;
-    setUser(newUser)
-  }
-  /**
-   * 주문  조회
-   */
-  const handlegetorder = async id => {
-    console.log(id);
+  //         const result2 = await OrderAPI.registOrderDetail(item);
+  //         const result3 = await BasketAPI.deleteBasket({
+  //           BasketID: BasketID,
+  //           bookID: tbBooks_ID
+  //         });
+  //         console.log(result3);
+  //         console.log(result2);
+  //       });
+  //       alert("주문 성공");
+  //       handlegetorder(user.ID);
+  //       handleInsertTotalprice({customerID: user.ID, totalprice: order.totalprice});
+  //       handleInsertcustomerPoint({customerID : user.ID, customerPoint : order.customerPoint });
+  //     _getSession()
+  //       //console.log(result4);
+  //     }
+  //   } catch (error) {
+  //     alert("주문 실패");
+  //     console.log(error);
+  //   }
+  // };
+  // /**
+  //  * 총 금액 조회
+  //  * @param {} id 
+  //  */
+  // const handleGetTotalPrice = async (user) =>{
+  //   const result4 = await UserAPI.gettotalprice(user.ID);
+  //   console.log(result4);
+  //   console.log(user)
+  //   let newUser = Object.assign({}, user);
+  //   newUser.totalprice = result4.data[0].totalprice;
+  //   setUser(newUser)
+  // }
+  // /**
+  //  * 주문  조회
+  //  */
+  // const handlegetorder = async id => {
+  //   console.log(id);
 
-    const result = await OrderAPI.getOrder();
-    console.log(result.data);
-    const list = result.data.filter(item => {
-      return item.tbCustomer_ID === id;
-    });
-    console.log(list);
-    setOrder(list);
-  };
+  //   const result = await OrderAPI.getOrder();
+  //   console.log(result.data);
+  //   const list = result.data.filter(item => {
+  //     return item.tbCustomer_ID === id;
+  //   });
+  //   console.log(list);
+  //   setOrder(list);
+  // };
 
   
-  /**
-   * 카드 조회
-   */
-  const handlegetCard = async () => {
-    const result = await CreaditCardAPI.getCard();
-    console.log(result.data);
-    setCardlist(result.data);
-  };
+  // /**
+  //  * 카드 조회
+  //  */
+  // const handlegetCard = async () => {
+  //   const result = await CreaditCardAPI.getCard();
+  //   console.log(result.data);
+  //   setCardlist(result.data);
+  // };
 
-  /**
-   * 카드 등록
-   */
-  const handleInsertCard = async card => {
-    const result = await CreaditCardAPI.registCard(card);
-    if (result.data.result) {
-      alert("등록");
-    }
-    handlegetCard();
-  };
+  // /**
+  //  * 카드 등록
+  //  */
+  // const handleInsertCard = async card => {
+  //   const result = await CreaditCardAPI.registCard(card);
+  //   if (result.data.result) {
+  //     alert("등록");
+  //   }
+  //   handlegetCard();
+  // };
 
-  /**
-   * 카드 삭제
-   */
-  const handleDeletecard = async card => {
-    //console.log(book);
-    const result = await CreaditCardAPI.deleteBook(card);
-    if (result.data.result) {
-      alert("삭제 완료");
-      handlegetCard();
-    }
-  };
+  // /**
+  //  * 카드 삭제
+  //  */
+  // const handleDeletecard = async card => {
+  //   //console.log(book);
+  //   const result = await CreaditCardAPI.deleteBook(card);
+  //   if (result.data.result) {
+  //     alert("삭제 완료");
+  //     handlegetCard();
+  //   }
+  // };
 
-  /**
-   * 주소 조회
-   */
-  const handlegetAddress = async () => {
-    const result = await AddressAPI.getAddress();
-    console.log(result.data);
-    setAddresslist(result.data);
-  };
+  // /**
+  //  * 주소 조회
+  //  */
+  // const handlegetAddress = async () => {
+  //   const result = await AddressAPI.getAddress();
+  //   console.log(result.data);
+  //   setAddresslist(result.data);
+  // };
 
-  /**
-   * 주소 등록
-   */
-  const handleInsertAddress = async address => {
-    const result = await AddressAPI.registAddress(address);
-    if (result.data.result) {
-      alert("등록");
-    }
-    handlegetAddress();
-  };
+  // /**
+  //  * 주소 등록
+  //  */
+  // const handleInsertAddress = async address => {
+  //   const result = await AddressAPI.registAddress(address);
+  //   if (result.data.result) {
+  //     alert("등록");
+  //   }
+  //   handlegetAddress();
+  // };
 
-  /**
-   * 주소 삭제
-   */
-  const handleDeleteAddress = async address => {
-    //console.log(book);
-    const result = await AddressAPI.deleteAddress(address);
-    if (result.data.result) {
-      alert("삭제 완료");
-      handlegetAddress();
-    }
-  };
+  // /**
+  //  * 주소 삭제
+  //  */
+  // const handleDeleteAddress = async address => {
+  //   //console.log(book);
+  //   const result = await AddressAPI.deleteAddress(address);
+  //   if (result.data.result) {
+  //     alert("삭제 완료");
+  //     handlegetAddress();
+  //   }
+  // };
 
   return (
     <div
@@ -375,7 +374,7 @@ const App = () => {
               />
             )}
           />
-          <Route
+          {/* <Route
             path="/basket"
             render={() => (
               <BasketContainer
@@ -385,9 +384,9 @@ const App = () => {
                 insertorder={handleInsertOrder}
               />
             )}
-          />
-          <Route
-            path="/orders"
+          /> */}
+          {/* <Route
+            path="/order"
             render={() => (
               <OrderContainer user={user} order={order} bookList={bookList} />
             )}
@@ -397,14 +396,14 @@ const App = () => {
             render={() => (
               <MypageContainer
                 user={user}
-                insertcard={handleInsertCard}
-                cardlist={cardlist}
-                deletecard={handleDeletecard}
+                // insertcard={handleInsertCard}
+                // cardlist={cardlist}
+                // deletecard={handleDeletecard}
                 addresslist={addresslist}
                 insertaddress={handleInsertAddress}
               />
             )}
-          />
+          /> */}
         </div>
       </Router>
     </div>

@@ -2,6 +2,7 @@ import axios from 'axios';
 // import APIConstant from './APIConstant'
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+// const BASE_URL = 'https://api-kimseul.ongdv.dev';
 
 export default {
     /**
@@ -28,27 +29,27 @@ export default {
     } ,
 
 
-    /**
-     * 누적금액 update
-     */
-    inserttotalprice : user =>{
-        const url = `${BASE_URL}/user/edit/${user.customerID}`
-        return axios.put(url, { totalprice : user.totalprice });
-    },
-    /**
-     * 적립금액 update
-     */
-    insertcustomerPoint : user =>{
-        const url = `${BASE_URL}/user/point/${user.customerID}`
-        return axios.put(url, { customerPoint : user.customerPoint });
-    },
+    // /**
+    //  * 누적금액 update
+    //  */
+    // inserttotalprice : user =>{
+    //     const url = `${BASE_URL}/user/edit/${user.customerID}`
+    //     return axios.put(url, { totalprice : user.totalprice });
+    // },
+    // /**
+    //  * 적립금액 update
+    //  */
+    // insertcustomerPoint : user =>{
+    //     const url = `${BASE_URL}/user/point/${user.customerID}`
+    //     return axios.put(url, { customerPoint : user.customerPoint });
+    // },
 
     /**
      * 누적금액 조회
      */
 
-     gettotalprice : user => {console.log(user);
-        const url = `${BASE_URL}/user/list/${user}`
-        return axios.get(url);
-     }
+    //  gettotalprice : user => {console.log(user);
+    //     const url = `${BASE_URL}/user/list/${user}`
+    //     return axios.get(url);
+    //  }
 }

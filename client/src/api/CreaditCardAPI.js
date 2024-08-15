@@ -1,7 +1,8 @@
 import axios from 'axios';
 //import APIConstant from './APIConstant'
 // const BASE_URL = 'http://10.1.213.210:8000';
-const BASE_URL = 'http://localhost:4000';
+// const BASE_URL = 'http://localhost:3000';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export default {
     /**

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./style.css";
 import { numberWithComma } from "../../util";
 import Modal from "../../componmet/Modal/Modal";
-// import OrderRegister from "./Order/OrderRegister";
+ import OrderRegister from "../Basket/component/OrderRegister";
+import OrderDetail from "../Order/OrderDetail";
 
 const BasketPresneter = props => {
   const { user, basketlist, bookList, insertorder} = props;
@@ -132,7 +133,7 @@ const BasketPresneter = props => {
                 </tr>
               </tbody>
             </table>
-            {/* <Modal active={modal} onCancel={setModal}>
+             <Modal active={modal} onCancel={setModal}>
               <OrderRegister
                 user={user}
                 orderList={orderList}
@@ -140,7 +141,7 @@ const BasketPresneter = props => {
                 bookList={bookList}
                 price={setPrice}
               />
-            </Modal> */}
+            </Modal> 
           </div>
         </div>
       </div>

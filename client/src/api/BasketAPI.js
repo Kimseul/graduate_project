@@ -2,20 +2,21 @@ import axios from 'axios';
 //import APIConstant from './APIConstant'
 // const BASE_URL = 'http://10.1.213.210:8000';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+ const BASE_URL = process.env.REACT_APP_BASE_URL;
+// const BASE_URL = 'http://api-kimseul.ongdv.dev';
 
 export default {
     /**
      * 장바구니 상세 불러오기
      */
     getBasket: () => {
-        const url = `${BASE_URL}/basket/detail/list`
+        const url = `${BASE_URL}/basket/list`
         return axios.get(url)
     },
 
     /**
      * 장바구니 등록하기
-     * @param { BasketID,	customerID ,	Baskettime} basket
+     * @param { BasketID,	customerID ,Baskettime} basket
      * @김예슬 2019-10-20 14:01:14
      */
     registBasket: (basket) => {

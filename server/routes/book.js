@@ -43,7 +43,7 @@ router.post("/signup",(req,res) => {
       if(err){
         throw err;
       }
-      var sql = `INSERT INTO tbBooks( bookName, author, price, stock, url)  VALUES (?,?,?,?,?,?);`;
+      var sql = `INSERT INTO tbBooks( bookName, author, price, stock, url)  VALUES (?,?,?,?,?);`;
       conn.query(sql,[ bookName, author, price, stock, url] , (err,raw) =>{
         conn.release();
         if(err){

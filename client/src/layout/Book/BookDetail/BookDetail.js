@@ -117,11 +117,13 @@ const BookDetail = (props) => {
           {
             user !== null &&
             user.cutomerID !== "admin" && (
-            <div className="basket" onClick={() => addbasket(book)}>
-              <FaShoppingCart size="40" >
+             
+            <div className="basket" onClick={() => addbasket(user)}>
+               <FaShoppingCart size="40" >
               <i className="material-icons" >add_shopping_cart</i>
               </FaShoppingCart>
             </div>
+            
           )}
 
           {
