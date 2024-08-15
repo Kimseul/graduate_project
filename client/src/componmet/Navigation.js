@@ -27,10 +27,7 @@ class Navigation extends Component {
 
                     
                 </div>
-                <div style={{width :'10%',display:'flex',alignContent:'center',justifyContent:'center'}}>
-                    <input type="search" placeholder="검색어를 입력하세요."></input>
-                    <button value="submit">search</button>
-                </div>
+               
                 
                 <div style={{width :'75%',display:'flex',justifyContent:'flex-end',alignItems:'center'}}>
                      <div>
@@ -52,7 +49,7 @@ class Navigation extends Component {
                                 <Link to="">마이페이지</Link>
                             </div>
                             <div className="menu-item">
-                                <Link to="/basket">장바구니</Link>
+                                <Link to="/">장바구니</Link>
                             </div>
                             <div className="menu-item">
                                 <Link onClick={()=> this.logout()}>로그아웃</Link>

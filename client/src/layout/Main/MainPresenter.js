@@ -31,7 +31,12 @@ const MainPresenter = (props) => {
        
         <div className="container">
         <div style={{width :'95%', height :'100%', margin : '0 auto', padding :'2.5% 0' }}>
-            <h3>도서</h3>
+           
+            <div style={{width :'25%',display:'flex',alignContent:'center',justifyContent:'center',}}>
+                <h3>도서</h3>
+                    <input type="search" placeholder="검색어를 입력하세요." style={{height:'35px', padding :'10px 0', margin:'12px 0 5px 10px'}}></input>
+                    <button value="submit" style={{justifyContent:'center',display:'center',height:'35px',lignContent:'center',margin:'12px 10px 5px 0'}}>search</button>
+                </div>
             <hr/>
             <div>
                 <table style={{width:'100%'}}>

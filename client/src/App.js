@@ -52,7 +52,7 @@ const App = () => {
     console.log(result);
     if (result !== null) {
       await setUser(result);
-      await handlegetbasket(result.BasketID);
+      //await handlegetbasket(result.BasketID);
       // await handlegetorder(result.ID);
       // await handleGetTotalPrice(result)
     }
@@ -156,55 +156,55 @@ const App = () => {
       await setUser(result.data);
       setSignInModal(false);
       await setSession("user", JSON.stringify(result.data));
-      await handlegetbasket(result.data.BasketID);
+      //await handlegetbasket(result.data.BasketID);
     } else {
       alert("로그인 실패");
     }
   };
 
-  /**
-   * 장바구니 조회
-   */
-  const handlegetbasket = async id => {
-    console.log(id);
+  // /**
+  //  * 장바구니 조회
+  //  */
+  // const handlegetbasket = async id => {
+  //   console.log(id);
 
-    const result = await BasketAPI.getBasket();
-    console.log(result.data);
-    const newList = result.data.filter(item => {
-      item.BasketID = Number(item.BasketID);
-      return Number(item.BasketID) === id;
-    });
-    console.log(newList);
-    setBasketlist(newList);
-  };
+  //   const result = await BasketAPI.getBasket();
+  //   console.log(result.data);
+  //   const newList = result.data.filter(item => {
+  //     item.BasketID = Number(item.BasketID);
+  //     return Number(item.BasketID) === id;
+  //   });
+  //   console.log(newList);
+  //   setBasketlist(newList);
+  // };
 
-  /**
-   * 장바구니 상세 등록
-   */
+  // /**
+  //  * 장바구니 상세 등록
+  //  */
 
-  const handleInsertBasket = async data => {
-    const cond = basket.some(item => {
-      return Number(item.bookID) === data.bookID;
-    });
-    if (cond) {
-      alert("이미 장바구니에 등록된 도서");
-      return;
-    }
+  // const handleInsertBasket = async data => {
+  //   const cond = basket.some(item => {
+  //     return Number(item.bookID) === data.bookID;
+  //   });
+  //   if (cond) {
+  //     alert("이미 장바구니에 등록된 도서");
+  //     return;
+  //   }
 
-    console.log(cond);
+  //   console.log(cond);
 
-    const basketitem = {
-      BasketID: user.BasketID,
-      bookID: data.bookID,
-      booksum: 1
-    };
-    console.log(basketitem);
-    const result = await BasketAPI.registBasket(basketitem);
-    if (result.data.result) {
-      alert("장바구니 등록 완료");
-      handlegetbasket(user.BasketID);
-    }
-  };
+  //   const basketitem = {
+  //     BasketID: user.BasketID,
+  //     bookID: data.bookID,
+  //     booksum: 1
+  //   };
+  //   console.log(basketitem);
+  //   const result = await BasketAPI.registBasket(basketitem);
+  //   if (result.data.result) {
+  //     alert("장바구니 등록 완료");
+  //     handlegetbasket(user.BasketID);
+  //   }
+  // };
 
   // /**
   //  * 주문 상세 등록
@@ -357,7 +357,7 @@ const App = () => {
           updatebook={handleUpdateBook}
           deletebook={handleDeleteBook}
           insertbook={handleInsertBook}
-          insertbasket={handleInsertBasket}
+          //insertbasket={handleInsertBasket}
           
           />
           )} />
@@ -370,7 +370,7 @@ const App = () => {
                 updatebook={handleUpdateBook}
                 insertbook={handleInsertBook}
                 deletebook={handleDeleteBook}
-                insertbasket={handleInsertBasket}
+                //insertbasket={handleInsertBasket}
               />
             )}
           />

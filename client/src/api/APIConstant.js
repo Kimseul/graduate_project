@@ -2,8 +2,9 @@
  * API 상수 정의
  */
 
-const BASE_URL = 'http://localhost:3000';
+// const BASE_URL = 'http://localhost:3001';
 // const BASE_URL = 'http://10.1.213.210:8000';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export default {
     //User API
@@ -28,8 +29,8 @@ export default {
 
     GET_CARD: BASE_URL + '/creaditcard', //GET
 
-    //Basket API
-    GET_BASKET: BASE_URL + '/basket/detail/list', //GET
-    REGIST_BASKET: BASE_URL + '/basket', //POST
+    // //Basket API
+    // GET_BASKET: BASE_URL + '/basket/detail/list', //GET
+    // REGIST_BASKET: BASE_URL + '/basket', //POST
     
 }
